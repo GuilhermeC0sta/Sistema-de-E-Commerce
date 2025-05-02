@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Cartão de Crédito",
+    "code": "credit",
+    "is_active": true
+  },
+  {
+    "id": 2,
+    "name": "Boleto Bancário",
+    "code": "boleto",
+    "is_active": true
+  },
+  {
+    "id": 3,
+    "name": "PIX",
+    "code": "pix",
+    "is_active": true
+  }
+]

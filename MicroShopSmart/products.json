@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "Smartphone Premium",
+    "description": "O smartphone mais avançado com câmera de alta resolução e processador potente.",
+    "price": "2499.99",
+    "image_url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Eletrônicos",
+    "stock": 15,
+    "rating": "4.8"
+  },
+  {
+    "id": 2,
+    "name": "Notebook Ultrafino",
+    "description": "Notebook leve e fino com desempenho excepcional para trabalho e entretenimento.",
+    "price": "4299.99",
+    "image_url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Eletrônicos",
+    "stock": 8,
+    "rating": "4.5"
+  },
+  {
+    "id": 3,
+    "name": "Fones de Ouvido Bluetooth",
+    "description": "Fones sem fio com cancelamento de ruído para uma experiência imersiva.",
+    "price": "299.99",
+    "image_url": "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Eletrônicos",
+    "stock": 25,
+    "rating": "4.2"
+  },
+  {
+    "id": 4,
+    "name": "Camiseta Básica",
+    "description": "Camiseta 100% algodão de alta qualidade em diversas cores.",
+    "price": "89.99",
+    "image_url": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Vestuário",
+    "stock": 50,
+    "rating": "4.0"
+  },
+  {
+    "id": 5,
+    "name": "Tênis Esportivo",
+    "description": "Tênis confortável para corrida e caminhada com tecnologia de amortecimento.",
+    "price": "329.99",
+    "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Esportes",
+    "stock": 12,
+    "rating": "4.7"
+  },
+  {
+    "id": 6,
+    "name": "O Poder do Hábito",
+    "description": "Best-seller sobre como transformar hábitos e mudar comportamentos.",
+    "price": "49.99",
+    "image_url": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Livros",
+    "stock": 30,
+    "rating": "4.9"
+  },
+  {
+    "id": 7,
+    "name": "Kit Panelas Antiaderentes",
+    "description": "Conjunto de panelas de alta qualidade com tecnologia antiaderente.",
+    "price": "399.99",
+    "image_url": "https://images.unsplash.com/photo-1585837575652-267c041d77d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Casa & Jardim",
+    "stock": 18,
+    "rating": "4.3"
+  },
+  {
+    "id": 8,
+    "name": "Relógio Inteligente",
+    "description": "Smartwatch com monitoramento de saúde, GPS e resistência à água.",
+    "price": "999.99",
+    "image_url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Eletrônicos",
+    "stock": 10,
+    "rating": "4.6"
+  },
+  {
+    "id": 9,
+    "name": "Smartphone Econômico",
+    "description": "Smartphone básico com ótimo custo-benefício para tarefas essenciais.",
+    "price": "899.99",
+    "image_url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Eletrônicos",
+    "stock": 25,
+    "rating": "4.0"
+  },
+  {
+    "id": 10,
+    "name": "Smartphone Gamer",
+    "description": "Smartphone otimizado para jogos com processador rápido e refrigeração avançada.",
+    "price": "3299.99",
+    "image_url": "https://images.unsplash.com/photo-1592286927505-1def25115df9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Eletrônicos",
+    "stock": 8,
+    "rating": "4.7"
+  },
+  {
+    "id": 11,
+    "name": "Notebook para Estudantes",
+    "description": "Notebook simples ideal para estudos e tarefas básicas.",
+    "price": "2599.99",
+    "image_url": "https://images.unsplash.com/photo-1542393545-10f5cde2c810?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Eletrônicos",
+    "stock": 12,
+    "rating": "4.1"
+  },
+  {
+    "id": 12,
+    "name": "Notebook Gamer",
+    "description": "Notebook potente para jogos com GPU dedicada e tela de alta taxa de atualização.",
+    "price": "5999.99",
+    "image_url": "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Eletrônicos",
+    "stock": 5,
+    "rating": "4.9"
+  },
+  {
+    "id": 13,
+    "name": "Fones de Ouvido Esportivos",
+    "description": "Fones resistentes à água e suor, ideais para atividades físicas.",
+    "price": "199.99",
+    "image_url": "https://images.unsplash.com/photo-1606400082777-ef05f3c5cde2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Eletrônicos",
+    "stock": 30,
+    "rating": "4.3"
+  },
+  {
+    "id": 14,
+    "name": "Fones de Ouvido Premium",
+    "description": "Fones com qualidade de áudio superior e design elegante.",
+    "price": "599.99",
+    "image_url": "https://images.unsplash.com/photo-1599669454699-248893623440?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Eletrônicos",
+    "stock": 10,
+    "rating": "4.8"
+  },
+  {
+    "id": 15,
+    "name": "Camiseta Estampada",
+    "description": "Camiseta com estampas modernas e tecido confortável.",
+    "price": "109.99",
+    "image_url": "https://images.unsplash.com/photo-1554568218-0f1715e72254?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Vestuário",
+    "stock": 35,
+    "rating": "4.2"
+  },
+  {
+    "id": 16,
+    "name": "Camiseta Polo",
+    "description": "Camiseta polo elegante para ocasiões casuais e formais.",
+    "price": "129.99",
+    "image_url": "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Vestuário",
+    "stock": 25,
+    "rating": "4.5"
+  },
+  {
+    "id": 17,
+    "name": "Tênis Casual",
+    "description": "Tênis confortável para uso diário com design moderno.",
+    "price": "259.99",
+    "image_url": "https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Vestuário",
+    "stock": 18,
+    "rating": "4.4"
+  },
+  {
+    "id": 18,
+    "name": "Tênis de Alta Performance",
+    "description": "Tênis profissional para competições e treinos intensos.",
+    "price": "499.99",
+    "image_url": "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "category": "Esportes",
+    "stock": 8,
+    "rating": "4.9"
+  }
+]
