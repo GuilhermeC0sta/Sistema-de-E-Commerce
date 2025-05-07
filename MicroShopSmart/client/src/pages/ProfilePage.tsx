@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAuth } from "@/hooks/use-auth";
+import { useAuth } from "@/context/AuthContext";
 import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "wouter";
 import { User } from "@shared/schema";
@@ -20,7 +20,7 @@ export default function ProfilePage() {
   }, [isAuthenticated, navigate]);
 
   // Fetch user orders
-  const { data: orders, isLoading: isLoadingOrders } = useQuery({
+  const { data: orders, isLoading: isLoadingOrders } = useQuery<any[]>({
     queryKey: ["/api/user", user?.id, "orders"],
     queryFn: async () => {
       if (!user?.id) return [];
@@ -140,9 +140,9 @@ export default function ProfilePage() {
                         </div>
                       ))}
                     </div>
-                  ) : orders?.length > 0 ? (
+                  ) : orders && orders.length > 0 ? (
                     <div className="space-y-4">
-                      {orders.map((order) => (
+                      {orders && orders.map((order: any) => (
                         <div key={order.id} className="border rounded-lg p-4 hover:border-primary-300 transition-colors">
                           <div className="flex flex-col sm:flex-row justify-between mb-2">
                             <div>
@@ -154,19 +154,23 @@ export default function ProfilePage() {
                                 order.status === "completed" ? "bg-green-100 text-green-800" :
                                 order.status === "pending" ? "bg-yellow-100 text-yellow-800" :
                                 order.status === "processing" ? "bg-blue-100 text-blue-800" :
-                                "bg-red-100 text-red-800"
+                                order.status === "paid" ? "bg-green-100 text-green-800" :
+                                order.status === "canceled" ? "bg-red-100 text-red-800" :
+                                "bg-blue-100 text-blue-800"
                               }`}>
                                 {order.status === "completed" ? "Entregue" :
                                  order.status === "pending" ? "Pendente" :
                                  order.status === "processing" ? "Em processamento" :
-                                 "Cancelado"}
+                                 order.status === "paid" ? "Aprovado" :
+                                 order.status === "canceled" ? "Cancelado" :
+                                 order.status}
                               </span>
                             </div>
                           </div>
                           <div className="mt-2">
                             <div className="flex justify-between text-sm">
                               <span className="text-neutral-500">Data</span>
-                              <span>{new Date(order.createdAt).toLocaleDateString('pt-BR')}</span>
+                              <span>{order.createdAt ? new Date(order.createdAt).toLocaleDateString('pt-BR') : '-'}</span>
                             </div>
                             <div className="flex justify-between text-sm mt-1">
                               <span className="text-neutral-500">Total</span>

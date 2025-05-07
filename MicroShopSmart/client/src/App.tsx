@@ -14,7 +14,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ShoppingCart from "@/components/ShoppingCart";
 import { CartProvider, useCart } from "./context/CartContext";
-import { AuthProvider } from "@/hooks/use-auth";
+import { AuthProvider } from "./context/AuthContext";
 import { ProtectedRoute } from "@/lib/protected-route";
 
 function Router() {

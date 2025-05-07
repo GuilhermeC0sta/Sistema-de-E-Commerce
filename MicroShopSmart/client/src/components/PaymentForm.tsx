@@ -232,20 +232,29 @@ export default function PaymentForm({ onSubmit, onBack }: PaymentFormProps) {
             </div>
           )}
           
-          <div className="flex justify-between">
+          <div className="flex justify-between mt-8">
             <Button 
               type="button" 
               variant="outline" 
               onClick={onBack}
+              className="flex items-center"
             >
-              Voltar
+              <svg className="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span>Voltar para Entrega</span>
             </Button>
             <Button 
               type="submit" 
               disabled={!selectedPaymentCode || isLoading}
-              className="bg-primary-600 hover:bg-primary-700"
+              className="bg-primary-600 hover:bg-primary-700 text-white font-medium px-6 py-2 text-base shadow-md flex items-center space-x-2"
+              style={{backgroundColor: "#4F46E5"}}
+              size="lg"
             >
-              Revisar Pedido
+              <span>Revisar Pedido</span>
+              <svg className="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </Button>
           </div>
         </form>

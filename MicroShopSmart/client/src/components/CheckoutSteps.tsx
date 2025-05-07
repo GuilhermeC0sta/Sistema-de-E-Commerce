@@ -10,28 +10,51 @@ export default function CheckoutSteps({ currentStep }: CheckoutStepsProps) {
   ];
 
   return (
-    <div className="px-6 py-4">
-      <div className="flex items-center justify-between w-full mb-6">
-        {steps.map((step, index) => (
-          <div key={step.number} className="flex items-center">
-            <div className={`flex items-center justify-center h-8 w-8 rounded-full text-white font-medium ${
-              currentStep >= step.number ? "bg-primary-600" : "bg-neutral-200 text-neutral-500"
-            }`}>
-              {step.number}
-            </div>
-            <div className="ml-3">
-              <span className={`text-sm font-medium ${
-                currentStep >= step.number ? "text-neutral-900" : "text-neutral-500"
-              }`}>
-                {step.title}
-              </span>
-            </div>
-            {index < steps.length - 1 && (
-              <div className="hidden sm:block w-full mx-4 border-t border-neutral-300"></div>
-            )}
-          </div>
-        ))}
-      </div>
+    <div className="px-6 py-4 border-b border-neutral-200">
+      <nav aria-label="Progresso do checkout">
+        <ol className="flex items-center justify-between w-full">
+          {steps.map((step, index) => (
+            <li key={step.number} className="relative flex flex-col items-center">
+              {/* Connecting line */}
+              {index > 0 && (
+                <div 
+                  className={`absolute top-4 w-full h-0.5 -left-1/2 ${
+                    currentStep > index ? "bg-primary-600" : "bg-neutral-200"
+                  }`}
+                />
+              )}
+              {/* Step circle */}
+              <div 
+                className={`flex h-10 w-10 items-center justify-center rounded-full border-2 z-10 
+                  ${currentStep === step.number 
+                    ? "border-primary-600 bg-primary-600 text-white" 
+                    : currentStep > step.number
+                      ? "border-primary-600 bg-primary-600 text-white"
+                      : "border-neutral-300 bg-white text-neutral-500"
+                  }`}
+              >
+                {currentStep > step.number ? (
+                  <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : (
+                  <span className="text-sm font-medium">{step.number}</span>
+                )}
+              </div>
+              {/* Step title */}
+              <div className="mt-2 text-center">
+                <span 
+                  className={`text-sm font-medium ${
+                    currentStep >= step.number ? "text-primary-700" : "text-neutral-500"
+                  }`}
+                >
+                  {step.title}
+                </span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </nav>
     </div>
   );
 }

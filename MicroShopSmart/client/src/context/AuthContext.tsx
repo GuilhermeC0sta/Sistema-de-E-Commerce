@@ -36,10 +36,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       setLoading(true);
 
-      const response = await apiRequest("POST", "/api/users/login", {
-        username,
-        password
+      const response = await fetch("/api/login", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+        credentials: 'include'
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Falha no login");
+      }
 
       const userData = await response.json();
       setUser(userData);
@@ -51,11 +58,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
 
       return true;
-    } catch (error) {
+    } catch (error: any) {
       console.error("Login error:", error);
       toast({
         title: "Falha ao fazer login",
-        description: "Usuário ou senha inválidos. Por favor, tente novamente.",
+        description: error.message || "Usuário ou senha inválidos. Por favor, tente novamente.",
         variant: "destructive",
       });
       return false;
@@ -68,7 +75,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       setLoading(true);
 
-      const response = await apiRequest("POST", "/api/users/register", userData);
+      const response = await fetch("/api/register", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData),
+        credentials: 'include'
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Falha no registro");
+      }
 
       const newUser = await response.json();
       setUser(newUser);
@@ -80,11 +97,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
 
       return true;
-    } catch (error) {
+    } catch (error: any) {
       console.error("Registration error:", error);
       toast({
         title: "Falha ao registrar",
-        description: "Não foi possível criar sua conta. Por favor, tente novamente.",
+        description: error.message || "Não foi possível criar sua conta. Por favor, tente novamente.",
         variant: "destructive",
       });
       return false;
@@ -93,13 +110,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem("user");
-    toast({
-      title: "Logout bem-sucedido",
-      description: "Você foi desconectado da sua conta.",
-    });
+  const logout = async () => {
+    try {
+      await fetch("/api/logout", {
+        method: 'POST',
+        credentials: 'include'
+      });
+      
+      setUser(null);
+      localStorage.removeItem("user");
+      toast({
+        title: "Logout bem-sucedido",
+        description: "Você foi desconectado da sua conta.",
+      });
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
   };
 
   return (

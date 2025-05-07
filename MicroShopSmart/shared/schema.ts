@@ -123,22 +123,6 @@ export const insertPaymentMethodSchema = createInsertSchema(paymentMethods).omit
   id: true,
 });
 
-// Session schema
-export const session = pgTable("session", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id")
-    .references(() => users.id, { onDelete: "cascade" })
-    .notNull(),
-  token: text("token").notNull().unique(),
-  createdAt: timestamp("created_at").defaultNow(),
-  expiresAt: timestamp("expires_at").notNull(),
-});
-
-export const insertSessionSchema = createInsertSchema(session).omit({
-  id: true,
-  createdAt: true,
-});
-
 // Types for API and frontend
 export type Product = typeof products.$inferSelect;
 export type InsertProduct = z.infer<typeof insertProductSchema>;
@@ -163,9 +147,6 @@ export type InsertShippingOption = z.infer<typeof insertShippingOptionSchema>;
 
 export type PaymentMethod = typeof paymentMethods.$inferSelect;
 export type InsertPaymentMethod = z.infer<typeof insertPaymentMethodSchema>;
-
-export type Session = typeof session.$inferSelect;
-export type InsertSession = z.infer<typeof insertSessionSchema>;
 
 // Extended types for the frontend
 export type CartItemWithProduct = CartItem & {

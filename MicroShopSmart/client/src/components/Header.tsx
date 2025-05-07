@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { useCart } from "@/context/CartContext";
-import { useAuth } from "@/hooks/use-auth";
+import { useAuth } from "@/context/AuthContext";
 import { useQuery } from "@tanstack/react-query";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -19,8 +19,7 @@ import { Search, ShoppingCart, User, LogOut, Package } from "lucide-react";
 export default function Header() {
   const [location, navigate] = useLocation();
   const { openCart, getCartItemCount } = useCart();
-  const { user, isAuthenticated, logoutMutation } = useAuth();
-  const logout = () => logoutMutation.mutate();
+  const { user, isAuthenticated, logout } = useAuth();
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
@@ -46,32 +45,32 @@ export default function Header() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/">
-              <a className="flex-shrink-0 flex items-center">
+              <div className="flex-shrink-0 flex items-center cursor-pointer">
                 <span className="text-2xl font-bold text-primary-600">ShopEasy</span>
-              </a>
+              </div>
             </Link>
             <nav className="hidden md:ml-6 md:flex md:space-x-8">
               <Link href="/">
-                <a className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+                <div className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium cursor-pointer ${
                   location === "/" ? "border-primary-500 text-primary-600" : "border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300"
                 }`}>
                   Início
-                </a>
+                </div>
               </Link>
               <Link href="/products">
-                <a className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+                <div className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium cursor-pointer ${
                   location.startsWith("/products") ? "border-primary-500 text-primary-600" : "border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300"
                 }`}>
                   Produtos
-                </a>
+                </div>
               </Link>
               {categories?.slice(0, 3).map((category) => (
                 <Link key={category} href={`/products?category=${encodeURIComponent(category)}`}>
-                  <a className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+                  <div className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium cursor-pointer ${
                     location === `/products?category=${encodeURIComponent(category)}` ? "border-primary-500 text-primary-600" : "border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300"
                   }`}>
                     {category}
-                  </a>
+                  </div>
                 </Link>
               ))}
             </nav>
@@ -230,26 +229,26 @@ export default function Header() {
         <div className="md:hidden bg-white border-t border-neutral-200">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link href="/">
-              <a className={`block px-3 py-2 rounded-md text-base font-medium ${
+              <div className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${
                 location === "/" ? "bg-primary-50 text-primary-700" : "text-neutral-700 hover:bg-neutral-50"
               }`}>
                 Início
-              </a>
+              </div>
             </Link>
             <Link href="/products">
-              <a className={`block px-3 py-2 rounded-md text-base font-medium ${
+              <div className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${
                 location.startsWith("/products") ? "bg-primary-50 text-primary-700" : "text-neutral-700 hover:bg-neutral-50"
               }`}>
                 Produtos
-              </a>
+              </div>
             </Link>
             {categories?.map((category) => (
               <Link key={category} href={`/products?category=${encodeURIComponent(category)}`}>
-                <a className={`block px-3 py-2 rounded-md text-base font-medium ${
+                <div className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${
                   location === `/products?category=${encodeURIComponent(category)}` ? "bg-primary-50 text-primary-700" : "text-neutral-700 hover:bg-neutral-50"
                 }`}>
                   {category}
-                </a>
+                </div>
               </Link>
             ))}
             

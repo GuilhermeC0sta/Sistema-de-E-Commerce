@@ -1,0 +1,38 @@
+[vite] connecting...
+[vite] connected.
+Warning: validateDOMNesting(...): <a> cannot appear as a descendant of &lt;a&gt;.
+    at a
+    at a
+    at https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=625b637b:352:18
+    at div
+    at div
+    at div
+    at header
+    at Header (https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/src/components/Header.tsx:37:32)
+    at div
+    at AppContent (https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/src/App.tsx?v=p5nAr54Pv2ciIAJh4VS0O:82:26)
+    at Provider (https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-BCLB22GG.js?v=625b637b:22:15)
+    at TooltipProvider (https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=625b637b:61:5)
+    at CartProvider (https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/src/context/CartContext.tsx:22:32)
+    at AuthProvider (https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/src/context/AuthContext.tsx:22:32)
+    at QueryClientProvider (https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=625b637b:2875:3)
+    at App
+Registration error: 
+Error {}
+
+Registration error: 
+Error {}
+
+Registration error: 
+Error {}
+
+Registration error: 
+Error {}
+
+Registration error: 
+Error {}
+
+at t.value (https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://ffee5027-9e82-47c6-994f-8f86cecd50f7-00-vkqyr82ue0lc.worf.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400

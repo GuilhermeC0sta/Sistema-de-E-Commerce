@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "@/hooks/use-auth";
+import { useAuth } from "@/context/AuthContext";
 import { Redirect } from "wouter";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -41,7 +41,7 @@ type RegisterFormValues = z.infer<typeof registerSchema>;
 
 export default function AuthPage() {
   const [activeTab, setActiveTab] = useState<"login" | "register">("login");
-  const { user, loginMutation, registerMutation } = useAuth();
+  const { user, login, register, loading } = useAuth();
 
   // Se já estiver logado, redireciona para a página inicial
   if (user) {
@@ -128,8 +128,8 @@ export default function AuthPage() {
 }
 
 function LoginForm() {
-  const { loginMutation } = useAuth();
-  const isLoading = loginMutation.isPending;
+  const { login, loading } = useAuth();
+  const isLoading = loading;
   
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
@@ -140,7 +140,7 @@ function LoginForm() {
   });
 
   function onSubmit(values: LoginFormValues) {
-    loginMutation.mutate(values);
+    login(values.username, values.password);
   }
 
   return (
@@ -188,8 +188,8 @@ function LoginForm() {
 }
 
 function RegisterForm() {
-  const { registerMutation } = useAuth();
-  const isLoading = registerMutation.isPending;
+  const { register, loading } = useAuth();
+  const isLoading = loading;
   
   const form = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
@@ -205,7 +205,7 @@ function RegisterForm() {
   function onSubmit(values: RegisterFormValues) {
     // Omite o confirmPassword antes de enviar para a API
     const { confirmPassword, ...registerData } = values;
-    registerMutation.mutate(registerData);
+    register(registerData);
   }
 
   return (
