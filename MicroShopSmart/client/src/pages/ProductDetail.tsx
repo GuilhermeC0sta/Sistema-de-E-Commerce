@@ -238,7 +238,7 @@ export default function ProductDetail() {
             <div className="prose max-w-none">
               <h3>Descrição do Produto</h3>
               <p>{product.description}</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl ac ultricies aliquam, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl. Nullam auctor, nisl ac ultricies aliquam, nunc nisl aliquet nunc, quis aliquam nisl nunc quis nisl.</p>
+              <p></p>
               <ul>
                 <li>Alta qualidade</li>
                 <li>Design moderno</li>
