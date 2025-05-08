@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useLocation } from "wouter";
 import { Product } from "@shared/schema";
+import { RecommendationWithReason } from "@/types/recommendation";
 import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -32,8 +33,15 @@ export default function ProductDetail() {
     },
   });
 
-  const { data: recommendations, isLoading: isLoadingRecommendations } = useQuery<Product[]>({
-    queryKey: ["/api/recommendations"],
+  const { data: recommendations, isLoading: isLoadingRecommendations } = useQuery<RecommendationWithReason[]>({
+    queryKey: ["/api/recommendations", productId],
+    queryFn: async () => {
+      const response = await fetch(`/api/recommendations?productId=${productId}`);
+      if (!response.ok) {
+        throw new Error("Falha ao carregar recomendações");
+      }
+      return response.json();
+    },
     enabled: !!product,
   });
 

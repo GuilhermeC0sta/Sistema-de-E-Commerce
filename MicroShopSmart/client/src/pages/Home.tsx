@@ -1,17 +1,30 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { Product } from "@shared/schema";
+import { RecommendationWithReason } from "@/types/recommendation";
 import ProductCard from "@/components/ProductCard";
 import RecommendationList from "@/components/RecommendationList";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Home() {
+  const { user } = useAuth();
+  
   const { data: products, isLoading } = useQuery<Product[]>({
     queryKey: ["/api/products"],
   });
 
-  const { data: recommendations, isLoading: isLoadingRecommendations } = useQuery<Product[]>({
-    queryKey: ["/api/recommendations"],
+  const { data: recommendations, isLoading: isLoadingRecommendations } = useQuery<RecommendationWithReason[]>({
+    queryKey: ["/api/recommendations", user?.id],
+    queryFn: async ({ queryKey }) => {
+      const userId = queryKey[1];
+      const url = userId ? `/api/recommendations?userId=${userId}` : '/api/recommendations';
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Failed to fetch recommendations');
+      }
+      return response.json();
+    },
   });
 
   return (

@@ -27,14 +27,14 @@ export default function CheckoutSteps({ currentStep }: CheckoutStepsProps) {
               <div 
                 className={`flex h-10 w-10 items-center justify-center rounded-full border-2 z-10 
                   ${currentStep === step.number 
-                    ? "border-primary-600 bg-primary-600 text-white" 
+                    ? "border-primary-600 bg-primary-600 text-black" 
                     : currentStep > step.number
-                      ? "border-primary-600 bg-primary-600 text-white"
+                      ? "border-primary-600 bg-primary-600 text-black"
                       : "border-neutral-300 bg-white text-neutral-500"
                   }`}
               >
                 {currentStep > step.number ? (
-                  <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-6 w-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 ) : (
